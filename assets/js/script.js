@@ -9,10 +9,13 @@ var getCityWeather = function(city) {
         return response.json()
         .then(function(data) {
             console.log(data);
-            $(".cityDate").text("Current Weather Condition of " + city);
-            $(".cityTem").text("Temperature: " + data.main.temp + "°C");
-            $(".cityWeather").text("Condition:" + data.weather[0].description)
-            $(".cityUV").text("Condition:" + data.weather[0].description)
+            $(".cityDate").text(city)
+            $(".cityTem").text("Temperature: "+ data.main.temp + "°C");
+            $(".cityWeather").text("Condition: " + data.weather[0].description)
+            $(".cityVis").text("Visibility: " + data.visibility)
+            $(".cityWind").text("Wind Speed: " + data.wind.speed +"m/s")
+            $(".bo").addClass("border bg-light p-5")
+            $(".icon").append(`https://openweathermap.org/img/wn/${data.weather[0].icon}@2x.png`)
 
         });
     });
