@@ -1,6 +1,8 @@
 
 var cityFormEl = document.querySelector("#city-form");
 var cityNameEL = document.querySelector("#cityName");
+var cityArray = []
+var cityList = document.querySelector(".cityStored")
 
 var getCityWeather = function(city) {
     var apiUrl = "https://api.openweathermap.org/data/2.5/weather?q=" + city+ "&appid=9fccc04f9b17187972d226baf5326d4a&units=metric"
@@ -16,9 +18,10 @@ var getCityWeather = function(city) {
             $(".cityWind").text("Wind Speed: " + data.wind.speed +"m/s")
             $(".bo").addClass("border bg-light p-5")
             $(".icon").append(`https://openweathermap.org/img/wn/${data.weather[0].icon}@2x.png`)
-
+            cityArray.push(city);
         });
     });
+
 };
   
 var formSubmitHandler = function(event) {
@@ -32,6 +35,14 @@ var formSubmitHandler = function(event) {
     }
     // console.log(event);
 };
+var addCityButton = function (event){
+    for (i = 0; i< cityArray.length; i++){
+        var btn = document.createElement("button");
+        btn.innerHTML= cityArray[i];
+        
+    }
+}
 
 
 cityFormEl.addEventListener("submit", formSubmitHandler);
+cityFormEl.addEventListener("submit", addCityButton);
