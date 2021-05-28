@@ -25,6 +25,8 @@ var getCityWeather = function(city) {
             if (!cityArray.includes(city)){cityArray.push(city);}
             getForecast(data.coord.lon, data.coord.lat);
             }
+            addCityButton(cityName);
+            cityArray = []
         });
     });
 
@@ -38,13 +40,20 @@ var getForecast = function(lon, lat){
         return response.json()
         .then(function(data) {
             console.log(data)
-            for(i = 0; i< 5;i++){
-                $("#forecastContainer").append(
-                    `<span class='col-sm-4  border bg-light p-3'>Temp: ${data.daily[i].temp.day}</span>
-                    <span class='col-sm-4 border bg-light p-3'> Weather: ${data.daily[i].weather[0].description}</span>
-                    <span class='col-sm-4 border bg-light p-3'>UV: ${data.daily[i].uvi}</span>` 
-                );
-            };
+                $(".day1").text(`------ Day 1 ------Temp: ${data.daily[0].temp.day}°C
+                Weather: ${data.daily[0].weather[0].description} 
+                UV: ${data.daily[0].uvi}`)
+                $(".day2").text(`------ Day 2 ------Temp: ${data.daily[1].temp.day}°C
+                Weather: ${data.daily[1].weather[0].description} 
+                UV: ${data.daily[1].uvi}`)
+                $(".day3").text(`------ Day 3 ------Temp: ${data.daily[2].temp.day}°C
+                Weather: ${data.daily[2].weather[0].description} 
+                UV: ${data.daily[2].uvi}`) 
+                $(".day4").text(`------ Day 4 ------Temp: ${data.daily[3].temp.day}°C
+                Weather: ${data.daily[3].weather[0].description} 
+                UV: ${data.daily[3].uvi}`)
+
+
         });
     });
 }
@@ -54,7 +63,7 @@ var formSubmitHandler = function(event) {
     if(cityName) {
         getCityWeather(cityName);
         getForecast(cityName);
-        addCityButton(cityName);
+
         cityNameEL.value = "";
     } else {
         alert("Please enter a city name")
@@ -65,6 +74,9 @@ var addCityButton = function (){
         $("#cityStored").append(`<button class = 'btn cityButton' id = "cityButton"> ${cityArray[i]}</button>`)
     }
 };
+
+
+
 
 var cityButton = document.getElementById("cityButton");
 
