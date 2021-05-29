@@ -48,18 +48,19 @@ var getForecast = function(lon, lat){
     .then(function(response) {
         return response.json()
         .then(function(data) {
+            console.log(data)
                 $(".day1").text(`------ Day 1 ------Temp: ${data.daily[0].temp.day}°C
                 Weather: ${data.daily[0].weather[0].description} 
-                UV: ${data.daily[0].uvi}`)
+                UV: ${data.daily[0].uvi} Humidity: ${data.daily[0].humidity}`)
                 $(".day2").text(`------ Day 2 ------Temp: ${data.daily[1].temp.day}°C
                 Weather: ${data.daily[1].weather[0].description} 
-                UV: ${data.daily[1].uvi}`)
+                UV: ${data.daily[1].uvi} Humidity: ${data.daily[1].humidity}`)
                 $(".day3").text(`------ Day 3 ------Temp: ${data.daily[2].temp.day}°C
                 Weather: ${data.daily[2].weather[0].description} 
-                UV: ${data.daily[2].uvi}`) 
+                UV: ${data.daily[2].uvi} Humidity: ${data.daily[2].humidity}`) 
                 $(".day4").text(`------ Day 4 ------Temp: ${data.daily[3].temp.day}°C
                 Weather: ${data.daily[3].weather[0].description} 
-                UV: ${data.daily[3].uvi}`)
+                UV: ${data.daily[3].uvi} Humidity: ${data.daily[3].humidity} `)
         });
     });
 }
