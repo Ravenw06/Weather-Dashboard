@@ -24,6 +24,15 @@ var getCityWeather = function(city) {
             $(".bo").addClass("border rounded bg-light p-4")
             if (!cityArray.includes(city)){cityArray.push(city);}
             getForecast(data.coord.lon, data.coord.lat);
+            if(data.weather[0].description === "broken clouds" || "cloud" ||"few clouds" ){
+                $(".cityWeather").addClass("text-primary")
+            }
+            else if(data.weather[0].description == "clear sky"){
+                $(".cityWeather").addClass("text-success")
+            }
+            else(
+                $(".cityWeather").addClass("text-danger")
+            )
             }
             addCityButton(cityName);
             cityArray = []
@@ -39,7 +48,6 @@ var getForecast = function(lon, lat){
     .then(function(response) {
         return response.json()
         .then(function(data) {
-            console.log(data)
                 $(".day1").text(`------ Day 1 ------Temp: ${data.daily[0].temp.day}°C
                 Weather: ${data.daily[0].weather[0].description} 
                 UV: ${data.daily[0].uvi}`)
@@ -52,8 +60,6 @@ var getForecast = function(lon, lat){
                 $(".day4").text(`------ Day 4 ------Temp: ${data.daily[3].temp.day}°C
                 Weather: ${data.daily[3].weather[0].description} 
                 UV: ${data.daily[3].uvi}`)
-
-
         });
     });
 }
