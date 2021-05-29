@@ -4,8 +4,8 @@ User are able to:
 - [x] User can see the current: 
   - [x] temperature, wind speed, and weather condition
 - [x] User can see the 4 -day weather forecast:
-  - [x]temperature, weather condition, UV level, 
-  - [x]current weather condition is color coded to indicate weather conditions and humidity
+  - [x] Temperature, weather condition, UV level, 
+  - [x] Current weather condition is color coded to indicate weather conditions and humidity
 - [ ] icon representation of weather conditions
 - [ ] functionality of the search history bar
 - [ ] local storage
