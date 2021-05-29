@@ -6,13 +6,11 @@ User are able to:
 - [x] User can see the 4 -day weather forecast:
   - [x]temperature, weather condition, UV level, 
   - [x]current weather condition is color coded to indicate weather conditions and humidity
- 
 - [ ] icon representation of weather conditions
 - [ ]functionality of the search history bar
 - [ ]local storage
 
-Built With
-####
+####Built With
 - HTML
 - CSS
 - jQuery
@@ -20,5 +18,7 @@ Built With
 - OpenWeather API
 - Bootstrap
 
-Demo:
+####Demo:
+
+
 ![Weather Dashboard](https://user-images.githubusercontent.com/78116042/120054169-66113680-bffc-11eb-88cd-0ed7e3d6660e.gif)
